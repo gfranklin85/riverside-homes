@@ -1,6 +1,7 @@
 "use server";
 
 import { createServerSupabaseClient } from "@/lib/supabase";
+import { Resend } from "resend";
 
 export type LeadFormState = {
   status: "idle" | "success" | "error";
@@ -41,6 +42,30 @@ export async function submitLead(
         status: "error",
         message: "Something went wrong. Please try again.",
       };
+    }
+
+    // Send email notification (non-blocking — don't fail the form if email fails)
+    try {
+      const resend = new Resend(process.env.RESEND_API_KEY);
+      const sourceLabel = source?.replace(/-/g, " ") || "unknown";
+
+      await resend.emails.send({
+        from: "RiversideHomes.co <onboarding@resend.dev>",
+        to: "gregfranklin523@gmail.com",
+        subject: `New Lead: ${name.trim()} — ${sourceLabel}`,
+        html: `
+          <h2>New Lead from RiversideHomes.co</h2>
+          <table style="border-collapse:collapse;font-family:sans-serif;">
+            <tr><td style="padding:8px;font-weight:bold;">Name</td><td style="padding:8px;">${name.trim()}</td></tr>
+            <tr><td style="padding:8px;font-weight:bold;">Phone</td><td style="padding:8px;">${phone.trim()}</td></tr>
+            <tr><td style="padding:8px;font-weight:bold;">Email</td><td style="padding:8px;">${email?.trim() || "—"}</td></tr>
+            <tr><td style="padding:8px;font-weight:bold;">Message</td><td style="padding:8px;">${message?.trim() || "—"}</td></tr>
+            <tr><td style="padding:8px;font-weight:bold;">Source</td><td style="padding:8px;">${sourceLabel}</td></tr>
+          </table>
+        `,
+      });
+    } catch (emailErr) {
+      console.error("Email notification failed:", emailErr);
     }
 
     return {
