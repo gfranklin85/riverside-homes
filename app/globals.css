@@ -36,7 +36,20 @@ body {
 .rdp-root {
   --rdp-accent-color: #2b8cee;
   --rdp-accent-background-color: #2b8cee20;
+  --rdp-day-width: 36px;
+  --rdp-day-height: 36px;
   font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: 0.875rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 639px) {
+  .rdp-root {
+    --rdp-day-width: 32px;
+    --rdp-day-height: 32px;
+    font-size: 0.8125rem;
+  }
 }
 
 /* Google Places autocomplete dropdown z-index fix for dialog */

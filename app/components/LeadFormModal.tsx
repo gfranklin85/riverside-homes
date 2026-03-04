@@ -75,7 +75,7 @@ export default function LeadFormModal({
   return (
     <dialog
       ref={dialogRef}
-      className="backdrop:bg-black/50 backdrop:backdrop-blur-sm bg-white dark:bg-slate-900 rounded-2xl shadow-2xl p-0 w-full max-w-md mx-auto border border-slate-200 dark:border-slate-700"
+      className="backdrop:bg-black/50 backdrop:backdrop-blur-sm bg-white dark:bg-slate-900 sm:rounded-2xl shadow-2xl p-0 w-full max-w-md mx-auto border border-slate-200 dark:border-slate-700 max-sm:m-0 max-sm:max-w-none max-sm:min-h-screen max-sm:rounded-none"
     >
       {state.status === "success" ? (
         <div className="p-8 text-center">
@@ -116,7 +116,7 @@ export default function LeadFormModal({
 
           <form
             action={formAction}
-            className="p-6 space-y-4 max-h-[70vh] overflow-y-auto"
+            className="p-4 sm:p-6 space-y-4 max-h-[70vh] max-sm:max-h-[calc(100vh-80px)] overflow-y-auto"
           >
             <input type="hidden" name="source" value={source} />
 
