@@ -66,7 +66,7 @@ export async function submitLead(
 
       await resend.emails.send({
         from: "RiversideHomes.co <onboarding@resend.dev>",
-        to: ["gregfranklin523@gmail.com", "matthewpf117@gmail.com"],
+        to: "gregfranklin523@gmail.com",
         subject: `New Lead: ${name.trim()} — ${sourceLabel}`,
         html: `
           <h2>New Lead from RiversideHomes.co</h2>
