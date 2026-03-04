@@ -39,7 +39,7 @@ export async function submitLead(
       console.error("Supabase insert error:", error);
       return {
         status: "error",
-        message: "Something went wrong. Please try again.",
+        message: `Error: ${error.message} (${error.code})`,
       };
     }
 
@@ -51,7 +51,7 @@ export async function submitLead(
     console.error("Lead submission error:", err);
     return {
       status: "error",
-      message: "Something went wrong. Please try again.",
+      message: `Error: ${err instanceof Error ? err.message : "Unknown error"}`,
     };
   }
 }
