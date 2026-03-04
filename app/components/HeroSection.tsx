@@ -1,3 +1,5 @@
+import CTAButton from "./CTAButton";
+
 export default function HeroSection() {
   return (
     <section className="relative py-16 lg:py-24 px-6 overflow-hidden">
@@ -17,13 +19,19 @@ export default function HeroSection() {
           </div>
 
           <div className="flex flex-wrap gap-4">
-            <button className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/30 transition-all flex items-center gap-2">
+            <CTAButton
+              source="book-appointment"
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/30 transition-all flex items-center gap-2"
+            >
               <span className="material-symbols-outlined">calendar_today</span>
               Book Your Appointment
-            </button>
-            <button className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 text-slate-900 dark:text-white px-8 py-4 rounded-xl font-bold text-lg shadow-sm transition-all">
+            </CTAButton>
+            <CTAButton
+              source="request-callback"
+              className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 text-slate-900 dark:text-white px-8 py-4 rounded-xl font-bold text-lg shadow-sm transition-all"
+            >
               Request a Call Back
-            </button>
+            </CTAButton>
           </div>
 
           {/* Profile Card */}

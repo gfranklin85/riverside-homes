@@ -1,3 +1,5 @@
+import CTAButton from "./CTAButton";
+
 export default function FinalCTA() {
   return (
     <section className="py-24 px-6 text-center">
@@ -11,15 +13,24 @@ export default function FinalCTA() {
         </h2>
 
         <div className="flex flex-wrap justify-center gap-4 relative z-10">
-          <button className="bg-primary dark:bg-white dark:text-primary hover:scale-105 transition-transform text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-black/20">
+          <CTAButton
+            source="book-appointment"
+            className="bg-primary dark:bg-white dark:text-primary hover:scale-105 transition-transform text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-black/20"
+          >
             Book Appointment
-          </button>
-          <button className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-lg backdrop-blur-sm transition-all">
+          </CTAButton>
+          <CTAButton
+            source="talk-to-matthew"
+            className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-lg backdrop-blur-sm transition-all"
+          >
             Talk to Matthew
-          </button>
-          <button className="bg-transparent text-white/80 underline underline-offset-8 px-8 py-4 font-bold text-lg transition-all hover:text-white">
+          </CTAButton>
+          <CTAButton
+            source="start-process"
+            className="bg-transparent text-white/80 underline underline-offset-8 px-8 py-4 font-bold text-lg transition-all hover:text-white"
+          >
             Start the Process
-          </button>
+          </CTAButton>
         </div>
       </div>
     </section>

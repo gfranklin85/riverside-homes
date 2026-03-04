@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useLeadForm } from "./LeadFormProvider";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { openForm } = useLeadForm();
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
@@ -36,7 +38,10 @@ export default function Navbar() {
           >
             Paperwork
           </a>
-          <button className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-md shadow-primary/20">
+          <button
+            onClick={() => openForm("book-appointment")}
+            className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-md shadow-primary/20"
+          >
             Book Appointment
           </button>
         </nav>
@@ -74,7 +79,13 @@ export default function Navbar() {
           >
             Paperwork
           </a>
-          <button className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-md shadow-primary/20 w-full">
+          <button
+            onClick={() => {
+              openForm("book-appointment");
+              setMobileMenuOpen(false);
+            }}
+            className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-md shadow-primary/20 w-full"
+          >
             Book Appointment
           </button>
         </div>
