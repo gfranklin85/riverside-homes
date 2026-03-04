@@ -1,7 +1,9 @@
 "use client";
 
-import { useActionState, useRef, useEffect } from "react";
+import { useActionState, useRef, useEffect, useState } from "react";
 import { submitLead, type LeadFormState } from "@/app/actions/submitLead";
+import AddressAutocomplete from "./AddressAutocomplete";
+import AppointmentPicker from "./AppointmentPicker";
 
 type LeadFormModalProps = {
   open: boolean;
@@ -21,6 +23,13 @@ export default function LeadFormModal({
     initialState
   );
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const [address, setAddress] = useState("");
+  const [preferredDate, setPreferredDate] = useState("");
+  const [preferredTime, setPreferredTime] = useState("");
+
+  const isAppointment = source === "book-appointment";
+  const isCallback = source === "request-callback";
+  const showScheduling = isAppointment || isCallback;
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -40,10 +49,28 @@ export default function LeadFormModal({
     return () => dialog.removeEventListener("close", handleClose);
   }, [onClose]);
 
+  // Reset local state when modal opens with a new source
+  useEffect(() => {
+    if (open) {
+      setAddress("");
+      setPreferredDate("");
+      setPreferredTime("");
+    }
+  }, [open]);
+
   const title =
     source === "request-callback"
       ? "Request a Call Back"
-      : "Book Your Appointment";
+      : source === "book-appointment"
+        ? "Book Your Appointment"
+        : "Get Started";
+
+  const subtitle =
+    source === "request-callback"
+      ? "Pick a time that works best for your call."
+      : source === "book-appointment"
+        ? "Choose a date and time for your appointment."
+        : "Tell us about your property and we'll reach out.";
 
   return (
     <dialog
@@ -71,20 +98,29 @@ export default function LeadFormModal({
       ) : (
         <div>
           <div className="flex items-center justify-between p-6 border-b border-slate-100 dark:border-slate-800">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-              {title}
-            </h3>
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                {title}
+              </h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                {subtitle}
+              </p>
+            </div>
             <button
               onClick={onClose}
-              className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+              className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 flex-shrink-0 ml-4"
             >
               <span className="material-symbols-outlined">close</span>
             </button>
           </div>
 
-          <form action={formAction} className="p-6 space-y-4">
+          <form
+            action={formAction}
+            className="p-6 space-y-4 max-h-[70vh] overflow-y-auto"
+          >
             <input type="hidden" name="source" value={source} />
 
+            {/* Name */}
             <div>
               <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">
                 Name *
@@ -98,6 +134,7 @@ export default function LeadFormModal({
               />
             </div>
 
+            {/* Phone */}
             <div>
               <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">
                 Phone *
@@ -111,6 +148,7 @@ export default function LeadFormModal({
               />
             </div>
 
+            {/* Email */}
             <div>
               <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">
                 Email
@@ -123,9 +161,39 @@ export default function LeadFormModal({
               />
             </div>
 
+            {/* Property Address with Google autocomplete */}
+            <AddressAutocomplete
+              name="address"
+              value={address}
+              onChange={setAddress}
+            />
+
+            {/* Appointment / Callback scheduling */}
+            {showScheduling && (
+              <div className="border-t border-slate-100 dark:border-slate-800 pt-4 mt-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="material-symbols-outlined text-primary text-xl">
+                    {isAppointment ? "event" : "phone_callback"}
+                  </span>
+                  <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                    {isAppointment
+                      ? "Schedule Your Appointment"
+                      : "When Should We Call?"}
+                  </span>
+                </div>
+                <AppointmentPicker
+                  selectedDate={preferredDate}
+                  selectedTime={preferredTime}
+                  onDateChange={setPreferredDate}
+                  onTimeChange={setPreferredTime}
+                />
+              </div>
+            )}
+
+            {/* Message */}
             <div>
               <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                Message or Property Address
+                Message
               </label>
               <textarea
                 name="message"
@@ -146,7 +214,13 @@ export default function LeadFormModal({
               disabled={isPending}
               className="w-full bg-primary hover:bg-primary/90 disabled:bg-primary/50 text-white px-6 py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 transition-all"
             >
-              {isPending ? "Sending..." : "Submit"}
+              {isPending
+                ? "Sending..."
+                : isAppointment
+                  ? "Book Appointment"
+                  : isCallback
+                    ? "Request Call Back"
+                    : "Submit"}
             </button>
           </form>
         </div>

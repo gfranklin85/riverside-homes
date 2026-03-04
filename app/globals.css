@@ -31,3 +31,15 @@ body {
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
+
+/* React Day Picker theme overrides */
+.rdp-root {
+  --rdp-accent-color: #2b8cee;
+  --rdp-accent-background-color: #2b8cee20;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+/* Google Places autocomplete dropdown z-index fix for dialog */
+.pac-container {
+  z-index: 10000 !important;
+}
