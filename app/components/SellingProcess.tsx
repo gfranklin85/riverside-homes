@@ -1,71 +1,80 @@
-const steps = [
-  {
-    icon: "calendar_month",
-    title: "1. Appointment",
-    description:
-      "Virtual or in-person consultation to understand your goals.",
-  },
-  {
-    icon: "description",
-    title: "2. Agreement",
-    description: "Secure online completion of all required disclosures.",
-  },
-  {
-    icon: "photo_camera",
-    title: "3. Prep & Media",
-    description: "Professional staging guidance and high-end photography.",
-  },
-  {
-    icon: "campaign",
-    title: "4. Go Live",
-    description:
-      "Launch on the market and review multiple offers with strategy.",
-  },
-  {
-    icon: "vpn_key",
-    title: "5. Close",
-    description: "Smooth escrow management and final key handover.",
-  },
-];
-
-export default function SellingProcess() {
+export default function ExchangeSection() {
   return (
-    <section className="py-20 bg-white dark:bg-slate-900 px-6" id="process">
-      <div className="max-w-7xl mx-auto text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">
-          Sell Your Home in 5 Simple Steps
-        </h2>
-        <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          We&apos;ve refined the selling experience into a frictionless journey,
-          leveraging technology to save you time and stress.
-        </p>
-      </div>
+    <section className="py-24 bg-white dark:bg-background-dark" id="exchange">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-primary/5 dark:bg-primary/10 rounded-[2rem] p-8 lg:p-16 border border-primary/10 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[80px] rounded-full -mr-20 -mt-20"></div>
 
-      <div className="max-w-7xl mx-auto relative">
-        {/* Progress Line */}
-        <div className="hidden lg:block absolute top-10 left-0 w-full h-1 bg-slate-100 dark:bg-slate-800 z-0">
-          <div className="h-full bg-primary/30 w-full"></div>
-        </div>
-
-        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8 relative z-10">
-          {steps.map((step) => (
-            <div
-              key={step.title}
-              className="flex flex-col items-center text-center group"
-            >
-              <div className="size-20 rounded-2xl bg-primary text-white flex items-center justify-center mb-6 shadow-lg shadow-primary/20 group-hover:-translate-y-1 transition-transform">
-                <span className="material-symbols-outlined text-4xl">
-                  {step.icon}
-                </span>
-              </div>
-              <h4 className="font-bold text-lg text-slate-900 dark:text-white mb-2">
-                {step.title}
-              </h4>
-              <p className="text-slate-500 dark:text-slate-400 text-sm">
-                {step.description}
+          <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div>
+              <span className="inline-flex items-center px-4 py-1 rounded-full bg-primary text-white text-[10px] font-black uppercase tracking-widest mb-6">
+                New Feature
+              </span>
+              <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-6">
+                Introducing the Exchange
+              </h2>
+              <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
+                A free marketplace for owners, agents, and investors to post
+                properties, explore opportunities, and analyze deals with more
+                clarity. No gatekeeping — everyone with a deal has a reason to
+                be here.
               </p>
+              <div className="flex flex-wrap gap-4">
+                <button className="bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-xl flex items-center gap-2 shadow-lg shadow-primary/25 transition-all">
+                  <span className="material-symbols-outlined filled-icon">
+                    analytics
+                  </span>
+                  Browse the Exchange
+                </button>
+                <button className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-bold py-4 px-8 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                  Post a Property Free
+                </button>
+              </div>
             </div>
-          ))}
+
+            <div className="grid grid-cols-2 gap-6">
+              <div className="space-y-6">
+                <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 hover:border-primary/30 transition-all group">
+                  <span className="material-symbols-outlined text-primary text-4xl mb-4 block group-hover:scale-110 transition-transform">
+                    trending_up
+                  </span>
+                  <h3 className="font-bold text-xl mb-2">Market Data</h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    Real-time valuation and cap rate analytics.
+                  </p>
+                </div>
+                <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 hover:border-primary/30 transition-all group">
+                  <span className="material-symbols-outlined text-primary text-4xl mb-4 block group-hover:scale-110 transition-transform">
+                    handshake
+                  </span>
+                  <h3 className="font-bold text-xl mb-2">Direct Access</h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    Connect directly with verified sellers and agents.
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-6 mt-12">
+                <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 hover:border-primary/30 transition-all group">
+                  <span className="material-symbols-outlined text-primary text-4xl mb-4 block group-hover:scale-110 transition-transform">
+                    verified_user
+                  </span>
+                  <h3 className="font-bold text-xl mb-2">Off-Market</h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    Exclusive listings you won&apos;t find on MLS platforms.
+                  </p>
+                </div>
+                <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 hover:border-primary/30 transition-all group">
+                  <span className="material-symbols-outlined text-primary text-4xl mb-4 block group-hover:scale-110 transition-transform">
+                    group
+                  </span>
+                  <h3 className="font-bold text-xl mb-2">Investor Network</h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    Join a global network of active property buyers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

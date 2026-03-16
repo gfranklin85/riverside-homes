@@ -8,85 +8,121 @@ export default function Navbar() {
   const { openForm } = useLeadForm();
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="p-1.5 bg-primary rounded-lg text-white">
-            <span className="material-symbols-outlined block">home_work</span>
+    <header className="sticky top-0 z-50 w-full bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined filled-icon text-primary text-4xl">
+              holiday_village
+            </span>
+            <span className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              Riverside<span className="text-primary">Homes</span>
+            </span>
           </div>
-          <h1 className="text-xl font-extrabold tracking-tight">
-            RiversideHomes<span className="text-primary">.co</span>
-          </h1>
+
+          <nav className="hidden md:flex items-center gap-8">
+            <a
+              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+              href="#buy"
+            >
+              Buy
+            </a>
+            <a
+              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+              href="#sell"
+            >
+              Sell
+            </a>
+            <a
+              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+              href="#realtors"
+            >
+              For Realtors
+            </a>
+            <a
+              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+              href="#investment"
+            >
+              Investor Opportunities
+            </a>
+            <a
+              className="text-sm font-semibold text-primary flex items-center gap-1"
+              href="#exchange"
+            >
+              Exchange
+              <span className="material-symbols-outlined filled-icon text-[10px]">
+                fiber_manual_record
+              </span>
+            </a>
+          </nav>
+
+          <div className="flex items-center gap-4">
+            <button className="hidden sm:block text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary transition-colors px-4 py-2">
+              Sign In
+            </button>
+            <button
+              onClick={() => openForm("get-started")}
+              className="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-6 py-2.5 rounded-lg shadow-sm transition-all"
+            >
+              Get Started
+            </button>
+            <button
+              className="md:hidden text-slate-900 dark:text-white"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              <span className="material-symbols-outlined">
+                {mobileMenuOpen ? "close" : "menu"}
+              </span>
+            </button>
+          </div>
         </div>
-
-        <nav className="hidden md:flex items-center gap-8">
-          <a
-            className="text-sm font-semibold hover:text-primary transition-colors"
-            href="#process"
-          >
-            Selling Process
-          </a>
-          <a
-            className="text-sm font-semibold hover:text-primary transition-colors"
-            href="#modern"
-          >
-            Modern Selling
-          </a>
-          <a
-            className="text-sm font-semibold hover:text-primary transition-colors"
-            href="#paperwork"
-          >
-            Paperwork
-          </a>
-          <button
-            onClick={() => openForm("book-appointment")}
-            className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-md shadow-primary/20"
-          >
-            Book Appointment
-          </button>
-        </nav>
-
-        <button
-          className="md:hidden text-slate-900 dark:text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          <span className="material-symbols-outlined">
-            {mobileMenuOpen ? "close" : "menu"}
-          </span>
-        </button>
       </div>
 
       {mobileMenuOpen && (
         <div className="md:hidden bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-6 py-4 flex flex-col gap-4">
           <a
             className="text-sm font-semibold hover:text-primary transition-colors"
-            href="#process"
+            href="#buy"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Selling Process
+            Buy
           </a>
           <a
             className="text-sm font-semibold hover:text-primary transition-colors"
-            href="#modern"
+            href="#sell"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Modern Selling
+            Sell
           </a>
           <a
             className="text-sm font-semibold hover:text-primary transition-colors"
-            href="#paperwork"
+            href="#realtors"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Paperwork
+            For Realtors
+          </a>
+          <a
+            className="text-sm font-semibold hover:text-primary transition-colors"
+            href="#investment"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Investor Opportunities
+          </a>
+          <a
+            className="text-sm font-semibold text-primary"
+            href="#exchange"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Exchange
           </a>
           <button
             onClick={() => {
-              openForm("book-appointment");
+              openForm("get-started");
               setMobileMenuOpen(false);
             }}
             className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-md shadow-primary/20 w-full"
           >
-            Book Appointment
+            Get Started
           </button>
         </div>
       )}

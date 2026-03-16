@@ -1,44 +1,74 @@
-const features = [
-  "Virtual walkthroughs to filter out window shoppers",
-  "Online documents: sign everything from your phone",
-  "Mobile photo sharing for quick prep updates",
-  "No unnecessary visits: only qualified buyers enter",
-  "Move at your pace with flexible closing timelines",
-];
-
-export default function ModernSelling() {
+export default function ResidentialServices() {
   return (
-    <section className="py-20 px-6" id="modern">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-        <div className="order-2 lg:order-1">
-          <img
-            alt="Remote Selling"
-            className="rounded-3xl shadow-2xl"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAstI-WyTB5Ay7BrYuPqWQ_5O-V-fdmoPn5TevdSxb9bMpLYT_6LU6YQLjBOFtQvbGmrc0gbMrAy2kejTueVOqIs736OFKy7ydTtctaat_gFbXzeDeWbTUF0j9ClaNB_xMMhb3B6jTtWlB4g_RPfoGKi10BcWNPRqMYDaRgU-IdkE_Gc6HYQgk9l275tI8pylSzynyocg1-JyrSmjZmn2jO5wLfYbJUjOipjrLEyGr7NbkMBFBzwgCQtHMnAjqby7eJpYsBaV9S6Md8"
-          />
-        </div>
-
-        <div className="order-1 lg:order-2 flex flex-col gap-6">
-          <h2 className="text-4xl font-black text-slate-900 dark:text-white">
-            Sell Without Disrupting Your Life
+    <section
+      className="py-24 bg-background-light/30 dark:bg-transparent"
+      id="buy"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-6">
+            Real Estate for Everyone
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400">
-            The old way of selling meant endless interruptions. We built a modern
-            alternative that keeps you in control.
+            Whether you&apos;re buying your first home or selling a lifelong
+            estate, we provide the tools and talent to make it seamless.
           </p>
+        </div>
 
-          <ul className="grid gap-4 mt-4">
-            {features.map((feature) => (
-              <li key={feature} className="flex items-start gap-3">
-                <div className="bg-primary/20 text-primary p-1 rounded-full flex shrink-0">
-                  <span className="material-symbols-outlined text-base">
-                    check
-                  </span>
-                </div>
-                <span className="font-medium">{feature}</span>
-              </li>
-            ))}
-          </ul>
+        <div className="grid md:grid-cols-2 gap-10" id="sell">
+          {/* Buying Card */}
+          <div className="group relative overflow-hidden rounded-[1.5rem] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-2xl transition-all duration-500">
+            <div className="aspect-[16/10] overflow-hidden">
+              <img
+                alt="Happy couple receiving keys to their new home"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIuLoROyREXAcz5TuxH-HyoHq7XnnzwCzn14JLI5dADXlXkLv2xjTIuuFbgy5OA9YgWn5UeSSdGILkl1TKvxesC6OEp4xI9UQea7WGxjHWD8GgexgvMZAQnBOPC2NuKVBBCz4_StK_Rl2BSLPUbH1dDnr3Few4l1v3yv_NtGKTNZn1ct3Vh-0UwMwWEbWxiHGTeP4BOwKMpBoZNLq_YlMLv29w-Nz1jl55duj-ZlHvnDjGZa2eJRwlIWQYI1fIpooJw8ntasLSK_bf"
+              />
+            </div>
+            <div className="p-10">
+              <h3 className="text-2xl font-bold mb-4">Buying a Home</h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                Our local experts help you navigate the competitive Riverside
+                market to find a place that fits your lifestyle and budget.
+              </p>
+              <a
+                className="inline-flex items-center text-primary font-bold gap-2 hover:gap-4 transition-all"
+                href="#"
+              >
+                Search Homes
+                <span className="material-symbols-outlined text-xl">
+                  arrow_right_alt
+                </span>
+              </a>
+            </div>
+          </div>
+
+          {/* Selling Card */}
+          <div className="group relative overflow-hidden rounded-[1.5rem] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-2xl transition-all duration-500">
+            <div className="aspect-[16/10] overflow-hidden">
+              <img
+                alt="Modern house with For Sale sign in the front yard"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmpF_CqcR0_dpw6W__w99qQQET2QKbM_8YB-fTLd8R7J0WliiNUsRMSmXSVne_tcYsCk5d3aF2vQbZC2LLuyGSD4OFHVDNtj7AiSPopsvmOxv6_exmUSV-8MDdpRd-EnGhTCGGT_Rf5VAfSf4lanlgAgsBWopvuCQhUyZdpoRkcWunPx5q9Y8fHXW0iRSDSVi5Hsq7TGyqmCclNwkFB8LrssH4ExaEtbHGvvupYWqS3HY4UTCg111JANlI20yoGHBjB6GQCBQNFPdN"
+              />
+            </div>
+            <div className="p-10">
+              <h3 className="text-2xl font-bold mb-4">Selling Your Property</h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                Get a data-backed valuation and list with Riverside&apos;s most
+                trusted name. We maximize your equity with precision marketing.
+              </p>
+              <a
+                className="inline-flex items-center text-primary font-bold gap-2 hover:gap-4 transition-all"
+                href="#"
+              >
+                Get a Valuation
+                <span className="material-symbols-outlined text-xl">
+                  arrow_right_alt
+                </span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
