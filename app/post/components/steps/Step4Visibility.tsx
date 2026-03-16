@@ -5,168 +5,87 @@ import type { ListingFormData, VisibilityTier } from "@/app/types/listing";
 interface Props {
   formData: ListingFormData;
   onChange: (updates: Partial<ListingFormData>) => void;
-  onNext: () => void;
-  onBack: () => void;
 }
 
 const tiers: {
   value: VisibilityTier;
   label: string;
+  badge?: string;
   price: string;
-  icon: string;
-  iconColor: string;
-  benefits: string[];
-  recommended?: boolean;
+  desc: string;
 }[] = [
   {
     value: "free",
-    label: "Free",
-    price: "Included",
-    icon: "storefront",
-    iconColor: "text-slate-400",
-    benefits: [
-      "Standard listing placement",
-      "Searchable by all users",
-      "Basic listing card",
-    ],
-  },
-  {
-    value: "featured",
-    label: "Featured",
-    price: "$10 / mo",
-    icon: "star",
-    iconColor: "text-amber-500",
-    benefits: [
-      "Gold ★ badge on listing card",
-      "Featured section placement",
-      "Priority over free listings",
-    ],
-  },
-  {
-    value: "priority",
-    label: "Priority",
-    price: "$20 / mo",
-    icon: "rocket_launch",
-    iconColor: "text-primary",
-    recommended: true,
-    benefits: [
-      "Top of search results",
-      "Included in investor alert emails",
-      "Priority + Featured badge",
-    ],
+    label: "Free Posting",
+    price: "$0.00",
+    desc: "Visible to all registered investors on the exchange network.",
   },
   {
     value: "spotlight",
-    label: "Spotlight",
-    price: "$29 / mo",
-    icon: "flash_on",
-    iconColor: "text-purple-500",
-    benefits: [
-      "Homepage feature slot",
-      "Investor newsletter inclusion",
-      "Dedicated priority support",
-    ],
+    label: "Boost for 3 days",
+    badge: "Most Popular",
+    price: "$29.00",
+    desc: "Priority ranking in searches and featured on the home dashboard.",
   },
 ];
 
-export default function Step4Visibility({ formData, onChange, onNext, onBack }: Props) {
+export default function Step4Visibility({ formData, onChange }: Props) {
   return (
-    <div className="space-y-8">
-      <div>
-        <h2 className="text-xl font-extrabold text-slate-900 dark:text-white mb-1">
-          Choose Your Visibility
-        </h2>
-        <p className="text-sm text-slate-500 dark:text-slate-400">
-          Every listing is free. Boost options get your deal in front of more
-          investors, faster.
-        </p>
-      </div>
-
-      <div className="grid sm:grid-cols-2 gap-4">
-        {tiers.map((tier) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {tiers.map((tier) => {
+        const selected = formData.visibilityTier === tier.value;
+        return (
           <button
             key={tier.value}
             type="button"
             onClick={() => onChange({ visibilityTier: tier.value })}
-            className={`relative flex flex-col items-start gap-4 p-6 rounded-2xl border-2 text-left transition-all ${
-              formData.visibilityTier === tier.value
-                ? "border-primary bg-primary/5 dark:bg-primary/10 ring-2 ring-primary/20"
-                : "border-slate-200 dark:border-slate-700 hover:border-primary/40"
+            className={`relative flex cursor-pointer rounded-xl border-2 p-6 text-left transition-all ${
+              selected
+                ? "border-primary bg-primary/5 dark:bg-primary/10"
+                : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-primary/40"
             }`}
           >
-            {tier.recommended && (
-              <span className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full bg-primary text-white text-[10px] font-black uppercase tracking-wider">
-                Popular
-              </span>
-            )}
-
-            <div className="flex items-center gap-3 w-full">
-              <div
-                className={`size-10 rounded-xl flex items-center justify-center ${
-                  formData.visibilityTier === tier.value
-                    ? "bg-primary/10 dark:bg-primary/20"
-                    : "bg-slate-100 dark:bg-slate-800"
-                }`}
-              >
-                <span className={`material-symbols-outlined filled-icon ${tier.iconColor}`}>
-                  {tier.icon}
-                </span>
-              </div>
-              <div>
-                <p className="font-extrabold text-slate-900 dark:text-white">
-                  {tier.label}
-                </p>
-                <p className="text-sm font-bold text-primary">{tier.price}</p>
-              </div>
-              {formData.visibilityTier === tier.value && (
-                <div className="ml-auto size-6 rounded-full bg-primary flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-white text-sm">
-                    check
+            <div className="flex flex-col flex-1">
+              {tier.badge && (
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-bold text-primary uppercase tracking-wider">
+                    {tier.badge}
                   </span>
+                  <span className="material-symbols-outlined text-primary text-sm">bolt</span>
                 </div>
               )}
+              {!tier.badge && (
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+                  Standard
+                </span>
+              )}
+              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">{tier.label}</h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm mt-2">{tier.desc}</p>
+              <p
+                className={`font-black mt-4 ${
+                  tier.value === "spotlight" ? "text-primary" : "text-slate-900 dark:text-slate-100"
+                }`}
+              >
+                {tier.price}
+              </p>
             </div>
-
-            <ul className="space-y-1.5 w-full">
-              {tier.benefits.map((b) => (
-                <li
-                  key={b}
-                  className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400"
-                >
-                  <span className="material-symbols-outlined text-primary text-sm shrink-0">
-                    check_circle
-                  </span>
-                  {b}
-                </li>
-              ))}
-            </ul>
+            <div className="ml-4 shrink-0">
+              <div
+                className={`size-6 rounded-full border-2 flex items-center justify-center transition-all ${
+                  selected
+                    ? "border-primary bg-primary"
+                    : "border-slate-300 dark:border-slate-700"
+                }`}
+              >
+                {selected && <div className="size-2 rounded-full bg-white" />}
+              </div>
+            </div>
           </button>
-        ))}
-      </div>
-
-      <p className="text-xs text-slate-400 dark:text-slate-500 text-center">
-        Paid tiers are for display purposes — no payment is collected during
-        this preview.
+        );
+      })}
+      <p className="col-span-full text-xs text-slate-400 dark:text-slate-500 text-center">
+        Paid tiers are for display purposes — no payment is collected during this preview.
       </p>
-
-      <div className="flex justify-between pt-4">
-        <button
-          type="button"
-          onClick={onBack}
-          className="flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-bold py-3.5 px-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-slate-300 transition-all"
-        >
-          <span className="material-symbols-outlined">arrow_back</span>
-          Back
-        </button>
-        <button
-          type="button"
-          onClick={onNext}
-          className="bg-primary hover:bg-primary/90 text-white font-bold py-3.5 px-8 rounded-xl flex items-center gap-2 transition-all"
-        >
-          Review Listing
-          <span className="material-symbols-outlined">arrow_forward</span>
-        </button>
-      </div>
     </div>
   );
 }

@@ -5,15 +5,13 @@ import type { ListingFormData, DealType } from "@/app/types/listing";
 interface Props {
   formData: ListingFormData;
   onChange: (updates: Partial<ListingFormData>) => void;
-  onNext: () => void;
-  onBack: () => void;
 }
 
-const dealTypes: { value: DealType; label: string; desc: string }[] = [
-  { value: "off-market", label: "Off-Market", desc: "Not listed on MLS" },
-  { value: "seller-finance", label: "Seller Finance", desc: "Owner carries paper" },
-  { value: "value-add", label: "Value-Add", desc: "Below-market rents or renovation play" },
-  { value: "fractional", label: "Fractional", desc: "Equity share or partnership" },
+const dealTypes: { value: DealType; label: string; icon: string }[] = [
+  { value: "off-market", label: "Off-Market", icon: "visibility_off" },
+  { value: "seller-finance", label: "Seller Finance", icon: "account_balance" },
+  { value: "value-add", label: "Value-Add", icon: "construction" },
+  { value: "fractional", label: "Fractional", icon: "pie_chart" },
 ];
 
 function computeCapRate(formData: ListingFormData): number | null {
@@ -27,19 +25,61 @@ function computeCapRate(formData: ListingFormData): number | null {
   return parseFloat(((noi / price) * 100).toFixed(2));
 }
 
-export default function Step3Financials({ formData, onChange, onNext, onBack }: Props) {
+export default function Step3Financials({ formData, onChange }: Props) {
   const capRate = computeCapRate(formData);
 
   return (
-    <div className="space-y-8">
-      <div>
-        <h2 className="text-xl font-extrabold text-slate-900 dark:text-white mb-1">
-          Financial Details
-        </h2>
-        <p className="text-sm text-slate-500 dark:text-slate-400">
-          These numbers get embedded in your listing so investors can analyze
-          the deal without emailing you first.
-        </p>
+    <div className="space-y-6">
+      {/* Primary 3-col grid matching mockup */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+            Monthly Rent/Income
+          </label>
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+            <input
+              type="number"
+              value={formData.monthlyRent}
+              onChange={(e) => onChange({ monthlyRent: e.target.value })}
+              placeholder="0.00"
+              min="0"
+              className="w-full pl-8 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+            Est. Operating Expenses
+          </label>
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+            <input
+              type="number"
+              value={formData.monthlyExpenses}
+              onChange={(e) => onChange({ monthlyExpenses: e.target.value })}
+              placeholder="0.00"
+              min="0"
+              className="w-full pl-8 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+            Property Tax (Annual)
+          </label>
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+            <input
+              type="number"
+              value={formData.propertyTaxes}
+              onChange={(e) => onChange({ propertyTaxes: e.target.value })}
+              placeholder="0.00"
+              min="0"
+              className="w-full pl-8 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Deal type */}
@@ -47,126 +87,38 @@ export default function Step3Financials({ formData, onChange, onNext, onBack }: 
         <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-3">
           Deal Type
         </label>
-        <div className="grid sm:grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {dealTypes.map((dt) => (
             <button
               key={dt.value}
               type="button"
               onClick={() => onChange({ dealType: dt.value })}
-              className={`flex items-center gap-3 p-4 rounded-xl border-2 text-left transition-all ${
+              className={`flex flex-col items-center gap-2 p-4 rounded-xl border-2 text-center transition-all ${
                 formData.dealType === dt.value
                   ? "border-primary bg-primary/5 dark:bg-primary/10"
                   : "border-slate-200 dark:border-slate-700 hover:border-primary/40"
               }`}
             >
-              <div
-                className={`size-8 rounded-lg flex items-center justify-center shrink-0 ${
-                  formData.dealType === dt.value
-                    ? "bg-primary text-white"
-                    : "bg-slate-100 dark:bg-slate-800 text-slate-400"
+              <span
+                className={`material-symbols-outlined ${
+                  formData.dealType === dt.value ? "text-primary" : "text-slate-400"
                 }`}
               >
-                <span className="material-symbols-outlined text-sm">
-                  {dt.value === "off-market"
-                    ? "visibility_off"
-                    : dt.value === "seller-finance"
-                    ? "account_balance"
-                    : dt.value === "value-add"
-                    ? "construction"
-                    : "pie_chart"}
-                </span>
-              </div>
-              <div>
-                <p className="font-bold text-sm text-slate-900 dark:text-white">
-                  {dt.label}
-                </p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
-                  {dt.desc}
-                </p>
-              </div>
+                {dt.icon}
+              </span>
+              <p className="font-bold text-xs text-slate-900 dark:text-white">{dt.label}</p>
             </button>
           ))}
         </div>
       </div>
 
-      {/* Income / expense fields */}
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-            Monthly Rent (gross)
-          </label>
-          <div className="relative">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm">$</span>
-            <input
-              type="number"
-              value={formData.monthlyRent}
-              onChange={(e) => onChange({ monthlyRent: e.target.value })}
-              placeholder="3200"
-              min="0"
-              className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 pl-8 pr-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-            Monthly Expenses (excl. taxes)
-          </label>
-          <div className="relative">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm">$</span>
-            <input
-              type="number"
-              value={formData.monthlyExpenses}
-              onChange={(e) => onChange({ monthlyExpenses: e.target.value })}
-              placeholder="450"
-              min="0"
-              className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 pl-8 pr-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-            Annual Property Taxes
-          </label>
-          <div className="relative">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm">$</span>
-            <input
-              type="number"
-              value={formData.propertyTaxes}
-              onChange={(e) => onChange({ propertyTaxes: e.target.value })}
-              placeholder="6000"
-              min="0"
-              className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 pl-8 pr-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-            Monthly HOA
-          </label>
-          <div className="relative">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm">$</span>
-            <input
-              type="number"
-              value={formData.hoa}
-              onChange={(e) => onChange({ hoa: e.target.value })}
-              placeholder="0"
-              min="0"
-              className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 pl-8 pr-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Realtor-only: co-op commission */}
+      {/* Realtor co-op commission */}
       {formData.listingType === "realtor" && (
-        <div>
-          <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+        <div className="flex flex-col gap-2 max-w-xs">
+          <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
             Co-op Commission (%)
           </label>
-          <div className="relative max-w-xs">
+          <div className="relative">
             <input
               type="number"
               value={formData.coopCommission}
@@ -175,57 +127,31 @@ export default function Step3Financials({ formData, onChange, onNext, onBack }: 
               min="0"
               max="10"
               step="0.25"
-              className="w-full rounded-xl border border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20 px-4 py-3 pr-10 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full rounded-lg border border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20 px-4 py-2.5 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
-            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm">
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-bold">
               %
             </span>
           </div>
-          <p className="text-xs text-purple-600 dark:text-purple-400 mt-1.5 font-medium">
-            Shown to buyer agents and investors on your listing card.
-          </p>
         </div>
       )}
 
-      {/* Live cap rate display */}
+      {/* Live cap rate */}
       {capRate !== null && (
-        <div className="flex items-center gap-4 p-5 rounded-2xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
-          <div className="size-12 rounded-xl bg-green-500 flex items-center justify-center shrink-0">
-            <span className="material-symbols-outlined text-white">trending_up</span>
+        <div className="flex items-center gap-4 p-5 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
+          <div className="size-10 rounded-lg bg-green-500 flex items-center justify-center shrink-0">
+            <span className="material-symbols-outlined text-white text-sm">trending_up</span>
           </div>
           <div>
             <p className="text-xs font-black text-green-600 dark:text-green-400 uppercase tracking-wider mb-0.5">
               Estimated Cap Rate
             </p>
-            <p className="text-3xl font-extrabold text-green-700 dark:text-green-300">
+            <p className="text-2xl font-extrabold text-green-700 dark:text-green-300">
               {capRate.toFixed(2)}%
-            </p>
-            <p className="text-xs text-green-600 dark:text-green-500 mt-0.5">
-              Based on the numbers you entered — investors will see this on your
-              listing.
             </p>
           </div>
         </div>
       )}
-
-      <div className="flex justify-between pt-4">
-        <button
-          type="button"
-          onClick={onBack}
-          className="flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-bold py-3.5 px-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-slate-300 transition-all"
-        >
-          <span className="material-symbols-outlined">arrow_back</span>
-          Back
-        </button>
-        <button
-          type="button"
-          onClick={onNext}
-          className="bg-primary hover:bg-primary/90 text-white font-bold py-3.5 px-8 rounded-xl flex items-center gap-2 transition-all"
-        >
-          Next: Visibility
-          <span className="material-symbols-outlined">arrow_forward</span>
-        </button>
-      </div>
     </div>
   );
 }

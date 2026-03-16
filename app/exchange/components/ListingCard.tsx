@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Listing, ListingType, DealType } from "@/app/types/listing";
 
 const listingTypeBadge: Record<ListingType, { label: string; className: string }> = {
@@ -127,10 +128,13 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         </div>
 
         {/* CTA */}
-        <button className="w-full bg-primary/10 hover:bg-primary/20 text-primary font-bold py-2.5 rounded-xl transition-colors text-sm flex items-center justify-center gap-1.5">
+        <Link
+          href={`/exchange/${listing.id}`}
+          className="w-full bg-primary/10 hover:bg-primary/20 text-primary font-bold py-2.5 rounded-xl transition-colors text-sm flex items-center justify-center gap-1.5"
+        >
           View Deal
           <span className="material-symbols-outlined text-sm">arrow_forward</span>
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -18,11 +18,21 @@ export type VisibilityTier = "free" | "featured" | "priority" | "spotlight";
 
 export interface ListingFinancials {
   monthlyRent: number | null;
+  marketRent: number | null;
+  potentialRent: number | null;
   monthlyExpenses: number | null;
   propertyTaxes: number | null; // annual
   hoa: number | null; // monthly
   capRate: number | null; // stored as percentage e.g. 6.4
   coopCommission: number | null; // Realtor-only, percentage e.g. 2.5
+}
+
+export interface OwnershipStake {
+  id: string;
+  ownerName: string;
+  percentage: number;
+  type: string;
+  color: string;
 }
 
 export interface Listing {
@@ -36,9 +46,15 @@ export interface Listing {
   beds: number | null;
   baths: number | null;
   sqft: number | null;
+  yearBuilt: number | null;
+  lotSize: string | null;
+  features: string[];
   askingPrice: number;
   imageUrls: string[];
   financials: ListingFinancials;
+  fractionalEnabled: boolean;
+  availableFraction: number | null; // percentage e.g. 40
+  ownership: OwnershipStake[] | null;
   visibilityTier: VisibilityTier;
   posterName: string;
   posterBrokerage: string | null;
