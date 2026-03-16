@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-white dark:bg-background-dark border-t border-slate-100 dark:border-slate-800 pt-20 pb-12">
@@ -72,12 +74,20 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-primary transition-colors"
-                  href="#exchange"
+                  href="/exchange"
                 >
                   The Exchange
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="hover:text-primary transition-colors"
+                  href="/post"
+                >
+                  Post a Property
+                </Link>
               </li>
               <li>
                 <a

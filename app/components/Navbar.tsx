@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useLeadForm } from "./LeadFormProvider";
 
 export default function Navbar() {
@@ -45,15 +46,15 @@ export default function Navbar() {
             >
               Investor Opportunities
             </a>
-            <a
+            <Link
               className="text-sm font-semibold text-primary flex items-center gap-1"
-              href="#exchange"
+              href="/exchange"
             >
               Exchange
               <span className="material-symbols-outlined filled-icon text-[10px]">
                 fiber_manual_record
               </span>
-            </a>
+            </Link>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -108,13 +109,13 @@ export default function Navbar() {
           >
             Investor Opportunities
           </a>
-          <a
+          <Link
             className="text-sm font-semibold text-primary"
-            href="#exchange"
+            href="/exchange"
             onClick={() => setMobileMenuOpen(false)}
           >
             Exchange
-          </a>
+          </Link>
           <button
             onClick={() => {
               openForm("get-started");

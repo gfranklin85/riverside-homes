@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ExchangeSection() {
   return (
     <section className="py-24 bg-white dark:bg-background-dark" id="exchange">
@@ -20,15 +22,15 @@ export default function ExchangeSection() {
                 be here.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-xl flex items-center gap-2 shadow-lg shadow-primary/25 transition-all">
+                <Link href="/exchange" className="bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-xl flex items-center gap-2 shadow-lg shadow-primary/25 transition-all">
                   <span className="material-symbols-outlined filled-icon">
                     analytics
                   </span>
                   Browse the Exchange
-                </button>
-                <button className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-bold py-4 px-8 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                </Link>
+                <Link href="/post" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-bold py-4 px-8 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
                   Post a Property Free
-                </button>
+                </Link>
               </div>
             </div>
 

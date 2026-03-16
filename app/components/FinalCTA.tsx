@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const properties = [
   {
     image:
@@ -60,12 +62,12 @@ export default function InvestmentOpportunities() {
               currently live on the Riverside Exchange.
             </p>
           </div>
-          <button className="bg-primary py-4 px-8 rounded-xl font-bold hover:bg-primary/90 transition-all flex items-center gap-2 whitespace-nowrap shadow-xl shadow-primary/20 group">
+          <Link href="/exchange" className="bg-primary py-4 px-8 rounded-xl font-bold hover:bg-primary/90 transition-all flex items-center gap-2 whitespace-nowrap shadow-xl shadow-primary/20 group">
             Enter Marketplace
             <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
               arrow_forward
             </span>
-          </button>
+          </Link>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
