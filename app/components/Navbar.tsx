@@ -47,6 +47,18 @@ export default function Navbar() {
               Investor Opportunities
             </a>
             <Link
+              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+              href="/prequalify"
+            >
+              Pre-Qualify
+            </Link>
+            <Link
+              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+              href="/lending"
+            >
+              Lender Hub
+            </Link>
+            <Link
               className="text-sm font-semibold text-primary flex items-center gap-1"
               href="/exchange"
             >
@@ -109,6 +121,20 @@ export default function Navbar() {
           >
             Investor Opportunities
           </a>
+          <Link
+            className="text-sm font-semibold hover:text-primary transition-colors"
+            href="/prequalify"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Pre-Qualify
+          </Link>
+          <Link
+            className="text-sm font-semibold hover:text-primary transition-colors"
+            href="/lending"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Lender Hub
+          </Link>
           <Link
             className="text-sm font-semibold text-primary"
             href="/exchange"
