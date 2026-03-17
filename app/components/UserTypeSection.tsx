@@ -52,16 +52,16 @@ const userTypes = [
 
 export default function UserTypeSection() {
   return (
-    <section className="py-24 bg-white dark:bg-background-dark">
+    <section className="py-16 sm:py-24 bg-white dark:bg-background-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-black uppercase tracking-widest mb-4">
             Open Platform
           </span>
-          <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
             Everyone Has a Seat at the Table
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">
             No gatekeeping. Every user type posts free. The platform grows
             because everyone with a deal has a reason to be here.
           </p>
@@ -129,14 +129,14 @@ export default function UserTypeSection() {
         </div>
 
         {/* Key distinction callout */}
-        <div className="bg-slate-900 dark:bg-primary/10 rounded-2xl p-8 lg:p-12 border border-slate-800 dark:border-primary/20 flex flex-col lg:flex-row items-center gap-8">
+        <div className="bg-slate-900 dark:bg-primary/10 rounded-2xl p-6 sm:p-8 lg:p-12 border border-slate-800 dark:border-primary/20 flex flex-col lg:flex-row items-center gap-6 sm:gap-8">
           <div className="size-16 shrink-0 rounded-2xl bg-primary flex items-center justify-center">
             <span className="material-symbols-outlined text-white text-3xl">
               compare_arrows
             </span>
           </div>
           <div className="text-center lg:text-left">
-            <p className="text-2xl font-extrabold text-white mb-2">
+            <p className="text-lg sm:text-xl md:text-2xl font-extrabold text-white mb-2">
               &ldquo;Your MLS gets you buyers. Owner System gets you
               investors.&rdquo;
             </p>

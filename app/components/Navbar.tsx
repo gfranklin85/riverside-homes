@@ -11,12 +11,12 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined filled-icon text-primary text-4xl">
+            <span className="material-symbols-outlined filled-icon text-primary text-3xl sm:text-4xl">
               holiday_village
             </span>
-            <span className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            <span className="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
               Riverside<span className="text-primary">Homes</span>
             </span>
           </div>
@@ -75,7 +75,7 @@ export default function Navbar() {
             </button>
             <button
               onClick={() => openForm("get-started")}
-              className="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-6 py-2.5 rounded-lg shadow-sm transition-all"
+              className="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg shadow-sm transition-all"
             >
               Get Started
             </button>
@@ -92,51 +92,51 @@ export default function Navbar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-5 py-4 flex flex-col gap-1">
           <a
-            className="text-sm font-semibold hover:text-primary transition-colors"
+            className="text-base font-semibold hover:text-primary transition-colors py-2"
             href="#buy"
             onClick={() => setMobileMenuOpen(false)}
           >
             Buy
           </a>
           <a
-            className="text-sm font-semibold hover:text-primary transition-colors"
+            className="text-base font-semibold hover:text-primary transition-colors py-2"
             href="#sell"
             onClick={() => setMobileMenuOpen(false)}
           >
             Sell
           </a>
           <a
-            className="text-sm font-semibold hover:text-primary transition-colors"
+            className="text-base font-semibold hover:text-primary transition-colors py-2"
             href="#realtors"
             onClick={() => setMobileMenuOpen(false)}
           >
             For Realtors
           </a>
           <a
-            className="text-sm font-semibold hover:text-primary transition-colors"
+            className="text-base font-semibold hover:text-primary transition-colors py-2"
             href="#investment"
             onClick={() => setMobileMenuOpen(false)}
           >
             Investor Opportunities
           </a>
           <Link
-            className="text-sm font-semibold hover:text-primary transition-colors"
+            className="text-base font-semibold hover:text-primary transition-colors py-2"
             href="/prequalify"
             onClick={() => setMobileMenuOpen(false)}
           >
             Pre-Qualify
           </Link>
           <Link
-            className="text-sm font-semibold hover:text-primary transition-colors"
+            className="text-base font-semibold hover:text-primary transition-colors py-2"
             href="/lending"
             onClick={() => setMobileMenuOpen(false)}
           >
             Lender Hub
           </Link>
           <Link
-            className="text-sm font-semibold text-primary"
+            className="text-base font-semibold text-primary py-2"
             href="/exchange"
             onClick={() => setMobileMenuOpen(false)}
           >
@@ -147,7 +147,7 @@ export default function Navbar() {
               openForm("get-started");
               setMobileMenuOpen(false);
             }}
-            className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-md shadow-primary/20 w-full"
+            className="bg-primary hover:bg-primary/90 text-white px-5 py-3 rounded-lg text-base font-bold transition-all shadow-md shadow-primary/20 w-full mt-2"
           >
             Get Started
           </button>

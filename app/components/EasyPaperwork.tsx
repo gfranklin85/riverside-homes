@@ -27,23 +27,23 @@ const realtorFeatures = [
 
 export default function ForRealtors() {
   return (
-    <section className="py-24 bg-background-light/50 dark:bg-slate-900/30" id="realtors">
+    <section className="py-16 sm:py-24 bg-background-light/50 dark:bg-slate-900/30" id="realtors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start mb-12 sm:mb-20">
           <div>
             <span className="inline-block px-4 py-1 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300 text-xs font-black uppercase tracking-widest mb-6">
               For Realtors
             </span>
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 leading-[1.1]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 sm:mb-6 leading-[1.1]">
               Built for Realtors Who Work With Investors
             </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
               Realtors aren&apos;t posting here to replace their MLS workflow.
               They&apos;re posting to reach the investor audience the MLS
               doesn&apos;t reach well — fractional buyers, seller-finance
               seekers, capital pledgers, and sweat equity participants.
             </p>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
               When an investor finds your listing and submits an offer, it routes
               through Owner System first. You get a{" "}
               <span className="font-bold text-slate-900 dark:text-white">
@@ -55,7 +55,7 @@ export default function ForRealtors() {
           </div>
 
           <div className="lg:pt-4">
-            <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-8 shadow-sm">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-5 sm:p-8 shadow-sm">
               <div className="flex items-center gap-3 mb-6">
                 <div className="size-10 rounded-xl bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center">
                   <span className="material-symbols-outlined text-purple-600 dark:text-purple-400">
@@ -114,7 +114,7 @@ export default function ForRealtors() {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {realtorFeatures.map((feature) => (
             <div
               key={feature.title}
