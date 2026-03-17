@@ -12,14 +12,14 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <span className="material-symbols-outlined filled-icon text-primary text-3xl sm:text-4xl">
               holiday_village
             </span>
             <span className="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
               Riverside<span className="text-primary">Homes</span>
             </span>
-          </div>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-8">
             <a

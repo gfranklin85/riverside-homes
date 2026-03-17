@@ -1,6 +1,53 @@
 import type { Listing } from "@/app/types/listing";
 
 export const MOCK_LISTINGS: Listing[] = [
+  // --- FEATURED LISTING ---
+  {
+    id: "featured-1",
+    listingType: "owner",
+    dealType: "off-market",
+    propertyType: "multi-family",
+    title: "2980 11th St — Historic Riverside Triplex",
+    address: "2980 11th St, Riverside, CA 92507",
+    description:
+      "This unique triplex property, built in 1913, offers significant potential in a historic area of Riverside. Located at 2980 11th St, the residence spans 874 square feet of versatile living space across three distinct units. Whether you're looking for an investment opportunity or a multi-generational living arrangement, this property provides the framework for a high-value asset in the CA 92507 market.",
+    beds: 3,
+    baths: 1,
+    sqft: 874,
+    yearBuilt: 1913,
+    lotSize: null,
+    features: [
+      "Triplex — 3 Units",
+      "Historic 1913 Construction",
+      "Lush Landscaped Grounds",
+      "Queen Palm Canopy",
+      "Arched Entry Portico",
+      "Investment Opportunity",
+      "Multi-generational Layout",
+      "CA 92507 Submarket",
+    ],
+    askingPrice: 677000,
+    imageUrls: ["/images/2980-11th-st.png"],
+    financials: {
+      monthlyRent: 4500,
+      marketRent: 4800,
+      potentialRent: 5400,
+      monthlyExpenses: 650,
+      propertyTaxes: 7400,
+      hoa: null,
+      capRate: null,
+      coopCommission: null,
+    },
+    fractionalEnabled: false,
+    availableFraction: null,
+    ownership: null,
+    visibilityTier: "spotlight",
+    posterName: "Anna Gonzales",
+    posterBrokerage: null,
+    posterDreNumber: null,
+    createdAt: "2026-03-16T00:00:00Z",
+  },
+
   // --- OWNER LISTINGS ---
   {
     id: "o1",
@@ -19,7 +66,7 @@ export const MOCK_LISTINGS: Listing[] = [
     features: ["Hardwood Floors", "Updated Kitchen", "2-Car Garage", "Solar Ready"],
     askingPrice: 485000,
     imageUrls: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBHj0w7Oz-rg7mXzdPWI_-QxVw2ybGCzDA57vEcwFXkUrl-Th1DU4DarTsAz0Gm-nSo1kSuAoPMa7-kHwuKK4E8YBPcCYjtVWvpfu_gu4po4-hmhPMv_D93-jrSW4qztFJcOkHAsXoHgsSHFiQkzL7eDWz-ULFd0YxdtbEZrJYnbt-d8ecgp8Zy9pUTs8nyQmKnCJpw58kz3iHdMInp9sPBMWpPdLc9bKi4uopEsYGvzQVF4eCiVFJbm-nhQaNys9eqfIAtMMlkE-Zh",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&h=600&fit=crop",
     ],
     financials: {
       monthlyRent: 2400,
@@ -57,7 +104,7 @@ export const MOCK_LISTINGS: Listing[] = [
     features: ["Large Lot", "RV Access", "Seller Finance Available", "Covered Patio"],
     askingPrice: 520000,
     imageUrls: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDmpF_CqcR0_dpw6W__w99qQQET2QKbM_8YB-fTLd8R7J0WliiNUsRMSmXSVne_tcYsCk5d3aF2vQbZC2LLuyGSD4OFHVDNtj7AiSPopsvmOxv6_exmUSV-8MDdpRd-EnGhTCGGT_Rf5VAfSf4lanlgAgsBWopvuCQhUyZdpoRkcWunPx5q9Y8fHXW0iRSDSVi5Hsq7TGyqmCclNwkFB8LrssH4ExaEtbHGvvupYWqS3HY4UTCg111JANlI20yoGHBjB6GQCBQNFPdN",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=600&fit=crop",
     ],
     financials: {
       monthlyRent: 2700,
@@ -95,7 +142,7 @@ export const MOCK_LISTINGS: Listing[] = [
     features: ["2 Units", "Below-Market Rents", "Renovation Upside", "Long-Term Tenants"],
     askingPrice: 695000,
     imageUrls: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBFF36ufVs6YXrDY6jEni-aDKMxf_RJpLHfhSP1Uej14p2aHeWMRuQsvxZwHlu1XPsfEOqQcglYtxn2v464wxF8XRTumWWv8Ct1_2If03v-K1GoY5IzlNEy5SqkAhuefCk-H8kUFp7vRmeK6zUl5glyOSwlU6EJZzV0Px3sqjDDuqRt_ot2uyryDFPhaX1NJtZHtEmB5HpD3PbObcDKGAuXcn4BsCge_YoLvuWBHAMibmoUaHwZdoMvNOyRiWAgRvCxkp2k1vxj9VQN",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=600&fit=crop",
     ],
     financials: {
       monthlyRent: 3800,
@@ -133,7 +180,7 @@ export const MOCK_LISTINGS: Listing[] = [
     features: ["4 Units", "Fully Occupied", "Long-Term Tenants", "Value-Add Potential", "Laundry Room"],
     askingPrice: 980000,
     imageUrls: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAz84TWMYMcfwZqIfzwN9Bp8aITfY04BSyIS5-dg4YenRCtiE6pvuAaGy10B_Prok9QOnfUGwE5XcUk9ZAKFWi5bp4mrtzyTjTs0WBkqLVj2bIWA6M6LvtzmkA3BhscxzOpZMt4WlRuIhnQ6UWVuyUEfZWQ34GPnbUGK-vBxw-6_GOcYibSnH6_u3mHxTC6lwlv45AcppYzPhy3xfAsbtczD_Wj34kGDvH7-9b-rwSSB-u9caE3wyzekuqw96_uQo5949fCzxHczcrR",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a8?w=1200&h=600&fit=crop",
     ],
     financials: {
       monthlyRent: 5800,
@@ -176,7 +223,7 @@ export const MOCK_LISTINGS: Listing[] = [
     features: ["Pool", "RV Access", "Solar Panels", "3-Car Garage", "Pre-MLS"],
     askingPrice: 649000,
     imageUrls: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBIuLoROyREXAcz5TuxH-HyoHq7XnnzwCzn14JLI5dADXlXkLv2xjTIuuFbgy5OA9YgWn5UeSSdGILkl1TKvxesC6OEp4xI9UQea7WGxjHWD8GgexgvMZAQnBOPC2NuKVBBCz4_StK_Rl2BSLPUbH1dDnr3Few4l1v3yv_NtGKZN1ct3Vh-0UwMwWEbWxiHGTeP4BOwKMpBoZNLq_YlMLv29w-Nz1jl55duj-ZlHvnDjGZa2eJRwlIWQYI1fIpooJw8ntasLSK_bf",
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&h=600&fit=crop",
     ],
     financials: {
       monthlyRent: 3200,
@@ -214,7 +261,7 @@ export const MOCK_LISTINGS: Listing[] = [
     features: ["Tenant In Place", "Seller Finance", "HOA Community", "Balcony", "Assigned Parking"],
     askingPrice: 310000,
     imageUrls: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAvjSlIzPUvIEOu1pv_705FCw17IgRmXggDcRHwBbkmAQcBN8_Va4XihABKa9HqMlHKrL96xSrDflA5k30-Ba6hfqmW_bXu8H1zRd2_KA86Hlx4RfL7gSaa1x3JesgUpcKIiUK2f6bt2RkO4SZREQg-gXaaOtplhPnOftcy_ewJBxAnnf_VQX9Mcklac7v2ZyDeZ9ri7RTrqV5exRra2aGcNu8GkhiTDpOvCdicMuPtwLjsA5UBy1lJkN7UgLlgz1m52DZCrY95QHZ0",
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&h=600&fit=crop",
     ],
     financials: {
       monthlyRent: 1800,
@@ -252,7 +299,7 @@ export const MOCK_LISTINGS: Listing[] = [
     features: ["8 Units", "2 Vacant Units", "Below-Market Rents", "Strong Bones", "Value-Add Play"],
     askingPrice: 1750000,
     imageUrls: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBHj0w7Oz-rg7mXzdPWI_-QxVw2ybGCzDA57vEcwFXkUrl-Th1DU4DarTsAz0Gm-nSo1kSuAoPMa7-kHwuKK4E8YBPcCYjtVWvpfu_gu4po4-hmhPMv_D93-jrSW4qztFJcOkHAsXoHgsSHFiQkzL7eDWz-ULFd0YxdtbEZrJYnbt-d8ecgp8Zy9pUTs8nyQmKnCJpw58kz3iHdMInp9sPBMWpPdLc9bKi4uopEsYGvzQVF4eCiVFJbm-nhQaNys9eqfIAtMMlkE-Zh",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=600&fit=crop",
     ],
     financials: {
       monthlyRent: 9600,
@@ -290,7 +337,7 @@ export const MOCK_LISTINGS: Listing[] = [
     features: ["NNN Leases", "4 Retail Units", "2 Occupied", "High-Visibility Corner", "Fractional Investment"],
     askingPrice: 2100000,
     imageUrls: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAz84TWMYMcfwZqIfzwN9Bp8aITfY04BSyIS5-dg4YenRCtiE6pvuAaGy10B_Prok9QOnfUGwE5XcUk9ZAKFWi5bp4mrtzyTjTs0WBkqLVj2bIWA6M6LvtzmkA3BhscxzOpZMt4WlRuIhnQ6UWVuyUEfZWQ34GPnbUGK-vBxw-6_GOcYibSnH6_u3mHxTC6lwlv45AcppYzPhy3xfAsbtczD_Wj34kGDvH7-9b-rwSSB-u9caE3wyzekuqw96_uQo5949fCzxHczcrR",
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=600&fit=crop",
     ],
     financials: {
       monthlyRent: 12500,
@@ -333,7 +380,7 @@ export const MOCK_LISTINGS: Listing[] = [
     features: ["Mixed-Use Zoning", "6 Res. Units Planned", "Ground-Floor Retail", "Permits In Progress", "Infill Lot"],
     askingPrice: 1200000,
     imageUrls: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBFF36ufVs6YXrDY6jEni-aDKMxf_RJpLHfhSP1Uej14p2aHeWMRuQsvxZwHlu1XPsfEOqQcglYtxn2v464wxF8XRTumWWv8Ct1_2If03v-K1GoY5IzlNEy5SqkAhuefCk-H8kUFp7vRmeK6zUl5glyOSwlU6EJZzV0Px3sqjDDuqRt_ot2uyryDFPhaX1NJtZHtEmB5HpD3PbObcDKGAuXcn4BsCge_YoLvuWBHAMibmoUaHwZdoMvNOyRiWAgRvCxkp2k1vxj9VQN",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=600&fit=crop",
     ],
     financials: {
       monthlyRent: null,
@@ -371,7 +418,7 @@ export const MOCK_LISTINGS: Listing[] = [
     features: ["12 Units", "6 Complete", "6 In Progress", "Conversion Play", "Capital Partner Sought"],
     askingPrice: 3200000,
     imageUrls: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBIuLoROyREXAcz5TuxH-HyoHq7XnnzwCzn14JLI5dADXlXkLv2xjTIuuFbgy5OA9YgWn5UeSSdGILkl1TKvxesC6OEp4xI9UQea7WGxjHWD8GgexgvMZAQnBOPC2NuKVBBCz4_StK_Rl2BSLPUbH1dDnr3Few4l1v3yv_NtGKZN1ct3Vh-0UwMwWEbWxiHGTeP4BOwKMpBoZNLq_YlMLv29w-Nz1jl55duj-ZlHvnDjGZa2eJRwlIWQYI1fIpooJw8ntasLSK_bf",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a8?w=1200&h=600&fit=crop",
     ],
     financials: {
       monthlyRent: 18000,
@@ -409,7 +456,7 @@ export const MOCK_LISTINGS: Listing[] = [
     features: ["22,000 SF", "Creative Office Conversion", "8.2% Pro Forma Cap", "Raising $1.8M", "Stabilized Play"],
     askingPrice: 4200000,
     imageUrls: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAvjSlIzPUvIEOu1pv_705FCw17IgRmXggDcRHwBbkmAQcBN8_Va4XihABKa9HqMlHKrL96xSrDflA5k30-Ba6hfqmW_bXu8H1zRd2_KA86Hlx4RfL7gSaa1x3JesgUpcKIiUK2f6bt2RkO4SZREQg-gXaaOtplhPnOftcy_ewJBxAnnf_VQX9Mcklac7v2ZyDeZ9ri7RTrqV5exRra2aGcNu8GkhiTDpOvCdicMuPtwLjsA5UBy1lJkN7UgLlgz1m52DZCrY95QHZ0",
+      "https://images.unsplash.com/photo-1565610222536-ef125c59da2e?w=1200&h=600&fit=crop",
     ],
     financials: {
       monthlyRent: null,
@@ -450,7 +497,7 @@ export const MOCK_LISTINGS: Listing[] = [
     features: ["18 Entitled Lots", "Grading Complete", "Seller Finance 35%", "7% Carry Rate", "Bond District Formed"],
     askingPrice: 5500000,
     imageUrls: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBHj0w7Oz-rg7mXzdPWI_-QxVw2ybGCzDA57vEcwFXkUrl-Th1DU4DarTsAz0Gm-nSo1kSuAoPMa7-kHwuKK4E8YBPcCYjtVWvpfu_gu4po4-hmhPMv_D93-jrSW4qztFJcOkHAsXoHgsSHFiQkzL7eDWz-ULFd0YxdtbEZrJYnbt-d8ecgp8Zy9pUTs8nyQmKnCJpw58kz3iHdMInp9sPBMWpPdLc9bKi4uopEsYGvzQVF4eCiVFJbm-nhQaNys9eqfIAtMMlkE-Zh",
+      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=600&fit=crop",
     ],
     financials: {
       monthlyRent: null,
@@ -470,5 +517,109 @@ export const MOCK_LISTINGS: Listing[] = [
     posterBrokerage: null,
     posterDreNumber: null,
     createdAt: "2026-03-07T14:00:00Z",
+  },
+
+  // --- REAL LISTINGS ---
+  {
+    id: "p1",
+    listingType: "realtor",
+    dealType: "value-add",
+    propertyType: "commercial",
+    title: "14080 Meridian Pky — Industrial / Warehouse",
+    address: "14080 Meridian Pky, Riverside, CA 92518",
+    description:
+      "This 2019-constructed industrial asset offers a rare opportunity to acquire a modern, turnkey facility within the Meridian corporate district of Riverside. Combining premium office buildout with efficient warehouse configurations, the property delivers a clean, corporate-ready environment suitable for a wide range of operations. The fenced and secured yard enhances functionality for businesses requiring equipment storage, fleet positioning, or outdoor merchandising. Existing approved CUP for boat sales and storage adds specialty operator value. Equipped with a 12×14 grade-level door, ESFR sprinklers, and 400-amp power.",
+    beds: null,
+    baths: null,
+    sqft: 13311,
+    yearBuilt: 2019,
+    lotSize: "0.74 Acres",
+    features: [
+      "Modern 2019 Construction",
+      "High Office Finish Quality",
+      "Existing CUP — Boat Sales & Storage",
+      "Fenced & Secured Yard",
+      "ESFR Sprinklers",
+      "400-Amp Power",
+      "12×14 Grade-Level Door",
+      "18' Clear Height",
+      "BP Zoning",
+      "Near Alessandro & Freeways",
+      "Association-Maintained Park",
+      "Available in 30 Days",
+    ],
+    askingPrice: 3660525,
+    imageUrls: [
+      "https://images.unsplash.com/photo-1565610222536-ef125c59da2e?w=1200&h=600&fit=crop",
+    ],
+    financials: {
+      monthlyRent: null,
+      marketRent: null,
+      potentialRent: null,
+      monthlyExpenses: null,
+      propertyTaxes: 26151,
+      hoa: null,
+      capRate: null,
+      coopCommission: null,
+    },
+    fractionalEnabled: false,
+    availableFraction: null,
+    ownership: null,
+    visibilityTier: "featured",
+    posterName: "Mario Calvillo",
+    posterBrokerage: "Lee & Associates",
+    posterDreNumber: null,
+    createdAt: "2026-02-05T00:00:00Z",
+  },
+  {
+    id: "p2",
+    listingType: "realtor",
+    dealType: "off-market",
+    propertyType: "commercial",
+    title: "10015 Magnolia Ave — NNN Retail Investment",
+    address: "10015 Magnolia Ave, Riverside, CA 92503",
+    description:
+      "Long-term national tenant established in 1949 — one of Southern California's largest footwear and apparel chains with 38 West Coast locations. Prime free-standing building with two rear buildings totaling 29,000 SF. Newly remodeled interior, new lighting, new landscaping, and fresh paint. Near Tyler Mall with ample parking, monument signage, and strong demographics. Close proximity to the 91 Freeway. Ideal NNN investment with in-place income and minimal landlord responsibilities.",
+    beds: null,
+    baths: null,
+    sqft: 29000,
+    yearBuilt: 1978,
+    lotSize: "1.10 Acres",
+    features: [
+      "National NNN Tenant",
+      "Tenant Est. 1949",
+      "38 West Coast Locations",
+      "Recently Remodeled",
+      "Near Tyler Mall",
+      "Monument Signage",
+      "135' Magnolia Ave Frontage",
+      "47 Parking Spaces",
+      "Near 91 Freeway",
+      "5.25% Cap Rate",
+      "Strong Demographics",
+      "Walk Score 88",
+    ],
+    askingPrice: 5815000,
+    imageUrls: [
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=600&fit=crop",
+    ],
+    financials: {
+      monthlyRent: 25441,
+      marketRent: null,
+      potentialRent: null,
+      monthlyExpenses: null,
+      propertyTaxes: 49211,
+      hoa: null,
+      capRate: 5.25,
+      coopCommission: null,
+    },
+    fractionalEnabled: false,
+    availableFraction: null,
+    ownership: null,
+    visibilityTier: "spotlight",
+    posterName: "Greg Jones",
+    posterBrokerage: "Jones RE",
+    posterDreNumber: null,
+    createdAt: "2026-01-23T00:00:00Z",
   },
 ];
