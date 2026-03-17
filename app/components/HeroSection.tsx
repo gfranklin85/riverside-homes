@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden bg-background-light dark:bg-slate-900/50">
+    <section className="relative py-12 sm:py-16 lg:py-32 overflow-hidden bg-background-light dark:bg-slate-900/50">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-background-light via-background-light/90 to-transparent dark:from-background-dark dark:via-background-dark/90 z-10"></div>
         <img
@@ -12,17 +12,17 @@ export default function HeroSection() {
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
             Riverside Real Estate,{" "}
             <span className="text-primary">Reinvented.</span>
           </h1>
-          <p className="mt-6 text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg">
             The modern standard for residential and investment property.
             Data-driven insights, local expertise, and an exclusive investor
             marketplace.
           </p>
 
-          <div className="mt-10 max-w-xl">
+          <div className="mt-6 sm:mt-10 max-w-xl">
             <div className="flex flex-col sm:flex-row gap-2 p-1.5 bg-white dark:bg-slate-800 rounded-xl shadow-2xl shadow-primary/10 border border-slate-200 dark:border-slate-700">
               <div className="flex-1 flex items-center px-4 gap-3 py-2 sm:py-0">
                 <span className="material-symbols-outlined text-slate-400">
@@ -34,7 +34,7 @@ export default function HeroSection() {
                   type="text"
                 />
               </div>
-              <button className="bg-primary hover:bg-primary/90 text-white font-bold py-3.5 px-8 rounded-lg transition-all flex items-center justify-center gap-2">
+              <button className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 sm:py-3.5 sm:px-8 rounded-lg transition-all flex items-center justify-center gap-2">
                 Search Properties
               </button>
             </div>

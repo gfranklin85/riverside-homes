@@ -2,11 +2,11 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-background-dark border-t border-slate-100 dark:border-slate-800 pt-20 pb-12">
+    <footer className="bg-white dark:bg-background-dark border-t border-slate-100 dark:border-slate-800 pt-12 sm:pt-20 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-20">
           {/* Brand */}
-          <div className="col-span-2 lg:col-span-2 pr-12">
+          <div className="col-span-2 lg:col-span-2 pr-4 sm:pr-8 lg:pr-12">
             <div className="flex items-center gap-2 mb-8">
               <span className="material-symbols-outlined filled-icon text-primary text-3xl">
                 holiday_village

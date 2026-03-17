@@ -39,14 +39,14 @@ const properties = [
 export default function InvestmentOpportunities() {
   return (
     <section
-      className="py-24 bg-slate-900 text-white overflow-hidden relative"
+      className="py-16 sm:py-24 bg-slate-900 text-white overflow-hidden relative"
       id="investment"
     >
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-1/4 h-full bg-blue-900/10 blur-[120px] rounded-full pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 sm:mb-16 gap-6 sm:gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <span className="h-px w-8 bg-primary"></span>
@@ -54,15 +54,15 @@ export default function InvestmentOpportunities() {
                 The Exchange Marketplace
               </span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-extrabold mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 sm:mb-4">
               Featured Investment Opportunities
             </h2>
-            <p className="text-slate-400 max-w-xl text-lg">
+            <p className="text-slate-400 max-w-xl text-base sm:text-lg">
               Direct access to promising multi-family and commercial assets
               currently live on the Riverside Exchange.
             </p>
           </div>
-          <Link href="/exchange" className="bg-primary py-4 px-8 rounded-xl font-bold hover:bg-primary/90 transition-all flex items-center gap-2 whitespace-nowrap shadow-xl shadow-primary/20 group">
+          <Link href="/exchange" className="bg-primary py-3 px-6 sm:py-4 sm:px-8 rounded-xl font-bold hover:bg-primary/90 transition-all flex items-center gap-2 whitespace-nowrap shadow-xl shadow-primary/20 group text-sm sm:text-base">
             Enter Marketplace
             <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
               arrow_forward
@@ -70,7 +70,7 @@ export default function InvestmentOpportunities() {
           </Link>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {properties.map((p) => (
             <div
               key={p.title}
@@ -89,7 +89,7 @@ export default function InvestmentOpportunities() {
                   {p.badge}
                 </span>
               </div>
-              <div className="p-8">
+              <div className="p-5 sm:p-8">
                 <div className="flex justify-between items-start mb-3">
                   <h4 className="font-bold text-xl group-hover:text-primary transition-colors">
                     {p.title}
