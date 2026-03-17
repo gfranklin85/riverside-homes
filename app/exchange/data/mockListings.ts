@@ -1,6 +1,53 @@
 import type { Listing } from "@/app/types/listing";
 
 export const MOCK_LISTINGS: Listing[] = [
+  // --- FEATURED LISTING ---
+  {
+    id: "featured-1",
+    listingType: "owner",
+    dealType: "off-market",
+    propertyType: "multi-family",
+    title: "2980 11th St — Historic Riverside Triplex",
+    address: "2980 11th St, Riverside, CA 92507",
+    description:
+      "This unique triplex property, built in 1913, offers significant potential in a historic area of Riverside. Located at 2980 11th St, the residence spans 874 square feet of versatile living space across three distinct units. Whether you're looking for an investment opportunity or a multi-generational living arrangement, this property provides the framework for a high-value asset in the CA 92507 market.",
+    beds: 3,
+    baths: 1,
+    sqft: 874,
+    yearBuilt: 1913,
+    lotSize: null,
+    features: [
+      "Triplex — 3 Units",
+      "Historic 1913 Construction",
+      "Lush Landscaped Grounds",
+      "Queen Palm Canopy",
+      "Arched Entry Portico",
+      "Investment Opportunity",
+      "Multi-generational Layout",
+      "CA 92507 Submarket",
+    ],
+    askingPrice: 677000,
+    imageUrls: ["/images/2980-11th-st.jpg"],
+    financials: {
+      monthlyRent: null,
+      marketRent: null,
+      potentialRent: null,
+      monthlyExpenses: null,
+      propertyTaxes: null,
+      hoa: null,
+      capRate: null,
+      coopCommission: null,
+    },
+    fractionalEnabled: false,
+    availableFraction: null,
+    ownership: null,
+    visibilityTier: "spotlight",
+    posterName: "Anna Gonzales",
+    posterBrokerage: null,
+    posterDreNumber: null,
+    createdAt: "2026-03-16T00:00:00Z",
+  },
+
   // --- OWNER LISTINGS ---
   {
     id: "o1",
