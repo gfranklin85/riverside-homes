@@ -27,7 +27,7 @@ export const MOCK_LISTINGS: Listing[] = [
       "CA 92507 Submarket",
     ],
     askingPrice: 677000,
-    imageUrls: ["/images/2980-11th-st.jpg"],
+    imageUrls: ["/images/2980-11th-st.png"],
     financials: {
       monthlyRent: null,
       marketRent: null,
