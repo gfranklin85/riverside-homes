@@ -261,9 +261,9 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
           <span className="material-symbols-outlined text-sm">arrow_back</span>
           Exchange
         </Link>
-        <span className="text-slate-300 dark:text-slate-600">/</span>
+        <span className="text-slate-400 dark:text-slate-500">/</span>
         <span className="text-slate-500 dark:text-slate-400">{typeLabel}</span>
-        <span className="text-slate-300 dark:text-slate-600">/</span>
+        <span className="text-slate-400 dark:text-slate-500">/</span>
         <span className="text-slate-700 dark:text-slate-300 font-medium truncate">{listing.title}</span>
       </div>
 
@@ -279,7 +279,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
             key={m.label}
             className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl p-4 shadow-sm"
           >
-            <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">{m.label}</div>
+            <div className="text-[11px] sm:text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-1">{m.label}</div>
             <div className={`text-xl font-black font-mono ${m.color}`}>{m.value}</div>
           </div>
         ))}
@@ -289,7 +289,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10">
         {/* Image */}
         <div className="lg:col-span-8">
-          <div className="rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 aspect-[21/9] relative flex items-center justify-center group shadow-md">
+          <div className="rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 aspect-video sm:aspect-[21/9] relative flex items-center justify-center group shadow-md">
             {image ? (
               <img
                 src={image}
@@ -301,10 +301,10 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
             <div className="absolute bottom-4 left-4 flex gap-2">
-              <span className="px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-wider bg-primary text-white shadow">
+              <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-primary text-white shadow">
                 {typeLabel}
               </span>
-              <span className="px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-wider bg-black/60 text-white backdrop-blur-sm">
+              <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-black/60 text-white backdrop-blur-sm">
                 {dealLabel}
               </span>
             </div>
@@ -325,7 +325,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
             </div>
 
             <div className="p-4 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-sm">
-              <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">List Price</div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">List Price</div>
               <div className="text-2xl font-black font-mono text-slate-900 dark:text-white">
                 ${fmt(listing.askingPrice)}
               </div>
@@ -334,25 +334,25 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
             <div className="grid grid-cols-2 gap-3">
               {listing.sqft && (
                 <div className="p-3 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-sm">
-                  <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Sq Ft</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Sq Ft</div>
                   <div className="text-sm font-bold text-slate-900 dark:text-white">{fmt(listing.sqft)}</div>
                 </div>
               )}
               {listing.yearBuilt && (
                 <div className="p-3 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-sm">
-                  <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Built</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Built</div>
                   <div className="text-sm font-bold text-slate-900 dark:text-white">{listing.yearBuilt}</div>
                 </div>
               )}
               {listing.beds && (
                 <div className="p-3 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-sm">
-                  <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Beds</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Beds</div>
                   <div className="text-sm font-bold text-slate-900 dark:text-white">{listing.beds}</div>
                 </div>
               )}
               {listing.baths && (
                 <div className="p-3 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl shadow-sm">
-                  <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Baths</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Baths</div>
                   <div className="text-sm font-bold text-slate-900 dark:text-white">{listing.baths}</div>
                 </div>
               )}
@@ -368,7 +368,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                 </span>
               </div>
               <div>
-                <div className="text-[8px] font-black uppercase tracking-widest text-slate-400">
+                <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">
                   {listing.listingType === "realtor" ? "Listing Agent" : listing.listingType === "developer" ? "Developer" : "Owner"}
                 </div>
                 <div className="text-xs font-bold text-slate-900 dark:text-white">{listing.posterName}</div>
@@ -404,37 +404,37 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
             <div className="grid grid-cols-2 gap-4 mb-6">
               {listing.sqft && (
                 <div>
-                  <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Square Feet</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Square Feet</div>
                   <div className="text-base font-bold text-slate-900 dark:text-white">{fmt(listing.sqft)}</div>
                 </div>
               )}
               {listing.lotSize && (
                 <div>
-                  <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Lot Size</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Lot Size</div>
                   <div className="text-base font-bold text-slate-900 dark:text-white">{listing.lotSize}</div>
                 </div>
               )}
               {listing.yearBuilt && (
                 <div>
-                  <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Year Built</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Year Built</div>
                   <div className="text-base font-bold text-slate-900 dark:text-white">{listing.yearBuilt}</div>
                 </div>
               )}
               {listing.financials.capRate && (
                 <div>
-                  <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Cap Rate</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Cap Rate</div>
                   <div className="text-base font-bold text-green-600">{listing.financials.capRate}%</div>
                 </div>
               )}
               {listing.financials.coopCommission && (
                 <div>
-                  <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Co-op Commission</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Co-op Commission</div>
                   <div className="text-base font-bold text-purple-600">{listing.financials.coopCommission}%</div>
                 </div>
               )}
               {listing.posterDreNumber && (
                 <div>
-                  <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">DRE #</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">DRE #</div>
                   <div className="text-base font-bold text-slate-900 dark:text-white">{listing.posterDreNumber}</div>
                 </div>
               )}
@@ -442,12 +442,12 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
 
             {listing.features.length > 0 && (
               <div className="pt-4 border-t border-slate-100 dark:border-slate-700">
-                <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-3">Key Features</div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">Key Features</div>
                 <div className="flex flex-wrap gap-1.5">
                   {listing.features.map((f) => (
                     <span
                       key={f}
-                      className="px-2.5 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-[9px] font-bold rounded-full"
+                      className="px-2.5 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-[10px] font-bold rounded-full"
                     >
                       {f}
                     </span>
@@ -467,7 +467,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
             <div className="flex items-center justify-between mb-3">
               <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">Select Rent for Analysis</div>
               <div className="flex items-center gap-2">
-                <span className="text-[9px] font-black uppercase tracking-widest text-slate-400">Units</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Units</span>
                 <input
                   type="number"
                   value={units}
@@ -495,7 +495,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                       : "border-slate-200 dark:border-slate-600 hover:border-primary/30"
                   }`}
                 >
-                  <div className="text-[9px] font-black uppercase tracking-tighter text-slate-400 mb-0.5">{label}</div>
+                  <div className="text-[10px] font-black uppercase tracking-tighter text-slate-400 mb-0.5">{label}</div>
                   <div className="text-sm font-black font-mono text-slate-900 dark:text-white">
                     {val != null ? `$${fmt(val)}` : "—"}
                   </div>
@@ -530,7 +530,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                 ] as const
               ).map(({ label, val, set }) => (
                 <div key={label} className="space-y-1">
-                  <label className="text-[9px] font-black uppercase tracking-widest text-slate-400">{label}</label>
+                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">{label}</label>
                   <div className="relative">
                     <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-xs text-slate-400">$</span>
                     <input
@@ -544,7 +544,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
               ))}
               <div className="col-span-2 space-y-1">
                 <div className="flex justify-between items-center">
-                  <label className="text-[9px] font-black uppercase tracking-widest text-slate-400">Mgmt Fee</label>
+                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Mgmt Fee</label>
                   <span className="text-xs font-bold text-primary">{annMgmt}%</span>
                 </div>
                 <input
@@ -600,7 +600,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                       <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Offer Builder</h2>
                       <div className="flex items-center gap-2 mt-0.5">
                         <span className="text-xs font-bold text-primary">{buyerName}</span>
-                        <span className="text-[9px] text-slate-400 px-2 py-0.5 bg-slate-100 dark:bg-slate-700 rounded-full uppercase tracking-widest">
+                        <span className="text-[10px] text-slate-400 px-2 py-0.5 bg-slate-100 dark:bg-slate-700 rounded-full uppercase tracking-widest">
                           {buyerRole}
                         </span>
                       </div>
@@ -669,7 +669,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                         valueClass="text-green-600"
                       />
 
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <SliderField
                           label={`Down Payment — ${downPct}%`}
                           value={downPct}
@@ -746,14 +746,14 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                     <SectionLabel icon="edit_note" text="Offer Details" />
 
                     <div className="space-y-4">
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <FormField label="Your Name" value={buyerName} onChange={setBuyerName} />
                         <FormField label="Your Role" value={buyerRole} onChange={setBuyerRole} />
                       </div>
 
                       {listing.fractionalEnabled && offerType === "Fractional" && (
                         <div>
-                          <label className="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1.5">
+                          <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1.5">
                             Equity Type
                           </label>
                           <div className="flex gap-2">
@@ -777,25 +777,25 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                               onChange={(e) => setSweatDetails(e.target.value)}
                               placeholder="Describe your sweat equity contribution..."
                               rows={2}
-                              className="mt-2 w-full bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-primary outline-none resize-none"
+                              className="mt-2 w-full bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-3 py-2 text-sm sm:text-xs focus:ring-2 focus:ring-primary outline-none resize-none"
                             />
                           )}
                         </div>
                       )}
 
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <FormField label="EMD ($)" value={emd} onChange={setEmd} type="number" />
                         <FormField label="Inspection Days" value={inspectionDays} onChange={setInspectionDays} type="number" />
                       </div>
 
                       <div>
-                        <label className="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1.5">
+                        <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1.5">
                           Closing Timeline
                         </label>
                         <select
                           value={closingTimeline}
                           onChange={(e) => setClosingTimeline(e.target.value)}
-                          className="w-full bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-3 py-2 text-xs font-medium focus:ring-2 focus:ring-primary outline-none"
+                          className="w-full bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-3 py-2 text-sm sm:text-xs font-medium focus:ring-2 focus:ring-primary outline-none"
                         >
                           {["15 days", "21 days", "30 days", "45 days", "60 days", "As-Is / Quick Close"].map((v) => (
                             <option key={v} value={v}>{v}</option>
@@ -803,7 +803,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                         </select>
                       </div>
 
-                      <div className="flex gap-4">
+                      <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                         <label className="flex items-center gap-2 cursor-pointer">
                           <input
                             type="checkbox"
@@ -811,7 +811,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                             onChange={(e) => setFinancingContingency(e.target.checked)}
                             className="w-4 h-4 accent-primary"
                           />
-                          <span className="text-xs font-medium text-slate-600 dark:text-slate-300">Financing Contingency</span>
+                          <span className="text-sm sm:text-xs font-medium text-slate-600 dark:text-slate-300">Financing Contingency</span>
                         </label>
                         <label className="flex items-center gap-2 cursor-pointer">
                           <input
@@ -820,7 +820,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                             onChange={(e) => setAppraisalContingency(e.target.checked)}
                             className="w-4 h-4 accent-primary"
                           />
-                          <span className="text-xs font-medium text-slate-600 dark:text-slate-300">Appraisal Contingency</span>
+                          <span className="text-sm sm:text-xs font-medium text-slate-600 dark:text-slate-300">Appraisal Contingency</span>
                         </label>
                       </div>
 
@@ -843,7 +843,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                       )}
 
                       <div>
-                        <label className="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1.5">
+                        <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1.5">
                           Personal Message (Optional)
                         </label>
                         <textarea
@@ -851,19 +851,19 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                           onChange={(e) => setPersonalMessage(e.target.value)}
                           placeholder="Introduce yourself and your intentions..."
                           rows={3}
-                          className="w-full bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-primary outline-none resize-none"
+                          className="w-full bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-3 py-2 text-sm sm:text-xs focus:ring-2 focus:ring-primary outline-none resize-none"
                         />
                       </div>
 
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
-                          <label className="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1.5">
+                          <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1.5">
                             Offer Expires (days)
                           </label>
                           <select
                             value={offerExpiry}
                             onChange={(e) => setOfferExpiry(e.target.value)}
-                            className="w-full bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-3 py-2 text-xs font-medium focus:ring-2 focus:ring-primary outline-none"
+                            className="w-full bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-3 py-2 text-sm sm:text-xs font-medium focus:ring-2 focus:ring-primary outline-none"
                           >
                             {["1", "2", "3", "5", "7"].map((v) => (
                               <option key={v} value={v}>{v} day{v !== "1" ? "s" : ""}</option>
@@ -881,7 +881,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                     <div className="pt-4 border-t border-slate-100 dark:border-slate-700">
                       <div className="flex items-center justify-between mb-4">
                         <div>
-                          <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">
+                          <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">
                             {offerType === "Fractional" ? `${requestedPct}% Stake` : "Full Offer"}
                           </div>
                           <div className="text-2xl font-black font-mono text-slate-900 dark:text-white">
@@ -906,7 +906,7 @@ export default function PropertyDetailClient({ listing }: { listing: Listing }) 
                           )}
                         </button>
                       </div>
-                      <p className="text-[9px] text-slate-400 leading-relaxed">
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">
                         This is a non-binding expression of interest. No obligation is created until a formal purchase agreement is executed.
                       </p>
                     </div>
@@ -981,13 +981,13 @@ function FormField({
 }) {
   return (
     <div>
-      <label className="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1.5">{label}</label>
+      <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1.5">{label}</label>
       <input
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-3 py-2 text-xs font-medium focus:ring-2 focus:ring-primary outline-none"
+        className="w-full bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-3 py-2 text-sm sm:text-xs font-medium focus:ring-2 focus:ring-primary outline-none"
       />
     </div>
   );
@@ -1021,7 +1021,7 @@ function SliderField({
   return (
     <div className={compact ? "space-y-1" : "space-y-2"}>
       <div className={`flex justify-between items-center ${compact ? "text-[10px]" : "text-xs"}`}>
-        <span className="font-black uppercase tracking-widest text-slate-400">{label}</span>
+        <span className="font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{label}</span>
         {!compact && (
           <div className="relative">
             {prefix && <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400">{prefix}</span>}
